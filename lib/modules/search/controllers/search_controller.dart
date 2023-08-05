@@ -18,7 +18,9 @@ class SearchingController extends GetxController {
 
   Future getSearchResults(String mask) async {
     try {
-      searchResults.value = await searchRepository!.search(mask);
+      if (ipService.isTurkmen) {
+        searchResults.value = await searchRepository!.search(mask);
+      }
     } catch (e) {
       Get.showSnackbar(Ui.errorSnackBar(message: "Ýalňyşlyk ýüze çykdy".tr));
     }
