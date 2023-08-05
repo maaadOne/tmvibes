@@ -1,0 +1,11 @@
+{
+    "base_url": "https://aydym.com/",
+    "api_path": "api/v1/",
+    "received": 1,
+    "accepted": 10,
+    "on_the_way": 20,
+    "ready": 30,
+    "in_progress": 40,
+    "done": 50,
+    "failed": 60
+  }
