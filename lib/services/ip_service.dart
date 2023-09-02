@@ -10,7 +10,6 @@ class IpService extends GetxService {
     ["216.250.8.0", "255.255.240.0"],
     ["103.220.0.0", "255.255.252.0"],
     ["177.93.143.0", "255.255.255.0"],
-    // ["10.0.0.0", "255.0.0.0"],
     ["185.69.185.0", "255.255.255.0"],
     ["93.11.220.0", "255.255.252.0"],
     ["185.69.184.0", "255.255.254.0"],
@@ -19,6 +18,7 @@ class IpService extends GetxService {
     ["95.47.57.0", "255.255.255.0"],
   ];
   Future<IpService> init() async {
+    // const ipv4 = '96.96.96.96';
     final ipv4 = await Ipify.ipv4();
     for (var rangeIp in ipRanges) {
       if (checkIpInRange(ipv4, rangeIp)) {

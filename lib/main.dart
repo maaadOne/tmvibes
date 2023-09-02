@@ -8,6 +8,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'providers/back_end_provider.dart';
+import 'radio_app.dart';
 import 'routes/app_pages.dart';
 import 'services/firebase_push_notification_service.dart';
 import 'services/global_service.dart';
@@ -38,7 +39,13 @@ void main() async {
   await Get.putAsync(() => IpService().init());
   await Get.putAsync(() => BackEndApiClient().init());
 
-  runApp(const MyApp());
+  final ipService = Get.find<IpService>();
+  if (ipService.isTurkmen) {
+    runApp(const MyApp());
+  } else {
+    runApp(MyRadio());
+  }
+
   // runApp(DevicePreview(
   //     // enabled: !kReleaseMode,
   //     builder: (BuildContext context) {

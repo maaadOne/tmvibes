@@ -4,7 +4,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:nb_utils/nb_utils.dart';
 import '../../../component/botom_player.dart';
 import '../../../routes/app_routes.dart';
-import '../../../screen/search_screen.dart';
+// import '../../../screen/search_screen.dart';
 import '../../../utils/colors.dart';
 import '../controllers/root_controller.dart';
 

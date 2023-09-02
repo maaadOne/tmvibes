@@ -1,4 +1,4 @@
-import 'package:get/get.dart' show GetPage;
+import 'package:get/get.dart';
 import '../modules/album/bindings/album_binding.dart';
 import '../modules/album/views/album_view.dart';
 import '../modules/album/views/albums_detail_view.dart';
@@ -15,9 +15,12 @@ import '../modules/root/bindings/root_binding.dart';
 import '../modules/root/views/root_view.dart';
 import '../modules/search/bindings/search_binding.dart';
 import '../modules/search/views/search_view.dart';
+import '../services/ip_service.dart';
 import 'app_routes.dart';
 
 class AppPages {
+  final ipService = Get.find<IpService>();
+
   static const initial = Routes.root;
 
   static final routes = [

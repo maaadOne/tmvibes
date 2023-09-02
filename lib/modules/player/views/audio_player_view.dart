@@ -159,61 +159,6 @@ class AudioPlayerView extends GetView<AudioPlayerController> {
         ],
       ),
 
-      // Container(
-      //   padding: const EdgeInsets.all(20),
-      //   height: double.infinity,
-      //   width: double.infinity,
-      //   color: mpAppBackGroundColor,
-      //   child: Column(
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: [
-      //       const SizedBox(height: 50),
-
-      //       StreamBuilder<SequenceState?>(
-      //         stream: controller.audioPlayer.sequenceStateStream,
-      //         builder: (context, snapshot) {
-      //           final state = snapshot.data;
-      //           if (state?.sequence.isEmpty ?? true) {
-      //             return const SizedBox();
-      //           }
-      //           final metadata = state!.currentSource!.tag as MediaItem;
-      //           return MediaMetaData(
-      //             imageUrl: metadata.artUri.toString(),
-      //             title: metadata.title,
-      //             artist: metadata.artist ?? "",
-      //           );
-      //         },
-      //       ),
-      //       SizedBox(height: Get.size.height < 600 ? 10 : 50),
-      //       StreamBuilder<PositionData>(
-      //         stream: controller.positionDataStream,
-      //         builder: (context, snapshot) {
-      //           final positionData = snapshot.data;
-      //           return ProgressBar(
-      //             timeLabelPadding: 10,
-      //             progress: positionData?.position ?? Duration.zero,
-      //             buffered: positionData?.bufferedPosition ?? Duration.zero,
-      //             total: positionData?.duration ?? Duration.zero,
-      //             onSeek: controller.audioPlayer.seek,
-      //             barHeight: 8,
-      //             baseBarColor: Colors.grey[600],
-      //             bufferedBarColor: Colors.grey,
-      //             progressBarColor: mpAppButtonColor,
-      //             thumbColor: iconColorPrimary,
-      //             timeLabelTextStyle: const TextStyle(
-      //               color: Colors.white,
-      //               fontWeight: FontWeight.w600,
-      //             ),
-      //           );
-      //         },
-      //       ),
-      //       // const SizedBox(height: 20),
-      //       Get.size.height < 600
-      //           ? const Expanded(child: Controls())
-      //           : const Controls()
-      //     ],
-      //   ),
-      // ),
       // BOTTOM CONTROLS
       bottomNavigationBar: StreamBuilder<SequenceState?>(
         stream: controller.audioPlayer.sequenceStateStream,
@@ -275,6 +220,62 @@ class AudioPlayerView extends GetView<AudioPlayerController> {
     );
   }
 }
+
+// Container(
+//   padding: const EdgeInsets.all(20),
+//   height: double.infinity,
+//   width: double.infinity,
+//   color: mpAppBackGroundColor,
+//   child: Column(
+//     mainAxisAlignment: MainAxisAlignment.center,
+//     children: [
+//       const SizedBox(height: 50),
+
+//       StreamBuilder<SequenceState?>(
+//         stream: controller.audioPlayer.sequenceStateStream,
+//         builder: (context, snapshot) {
+//           final state = snapshot.data;
+//           if (state?.sequence.isEmpty ?? true) {
+//             return const SizedBox();
+//           }
+//           final metadata = state!.currentSource!.tag as MediaItem;
+//           return MediaMetaData(
+//             imageUrl: metadata.artUri.toString(),
+//             title: metadata.title,
+//             artist: metadata.artist ?? "",
+//           );
+//         },
+//       ),
+//       SizedBox(height: Get.size.height < 600 ? 10 : 50),
+//       StreamBuilder<PositionData>(
+//         stream: controller.positionDataStream,
+//         builder: (context, snapshot) {
+//           final positionData = snapshot.data;
+//           return ProgressBar(
+//             timeLabelPadding: 10,
+//             progress: positionData?.position ?? Duration.zero,
+//             buffered: positionData?.bufferedPosition ?? Duration.zero,
+//             total: positionData?.duration ?? Duration.zero,
+//             onSeek: controller.audioPlayer.seek,
+//             barHeight: 8,
+//             baseBarColor: Colors.grey[600],
+//             bufferedBarColor: Colors.grey,
+//             progressBarColor: mpAppButtonColor,
+//             thumbColor: iconColorPrimary,
+//             timeLabelTextStyle: const TextStyle(
+//               color: Colors.white,
+//               fontWeight: FontWeight.w600,
+//             ),
+//           );
+//         },
+//       ),
+//       // const SizedBox(height: 20),
+//       Get.size.height < 600
+//           ? const Expanded(child: Controls())
+//           : const Controls()
+//     ],
+//   ),
+// ),
 
 class _BackgroundFilter extends StatelessWidget {
   const _BackgroundFilter({
