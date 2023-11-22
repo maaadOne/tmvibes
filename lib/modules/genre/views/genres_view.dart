@@ -49,23 +49,24 @@ class GenresView extends GetView<GenresController> {
           shrinkWrap: true,
           itemCount: controller.genres.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20,
-              childAspectRatio: 2),
+            crossAxisCount: 2,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20,
+            childAspectRatio: 2,
+          ),
           itemBuilder: (BuildContext context, int index) {
             Genre genre = controller.genres.elementAt(index);
-            Color randomColor = getRandomColor();
             return GestureDetector(
               onTap: () {
                 Get.toNamed(Routes.genreSongs, arguments: {"genre": genre});
               },
               child: Container(
-                color: randomColor,
-                child: Text(genre.name!,
-                        textAlign: TextAlign.center,
-                        style: boldTextStyle(color: Colors.white))
-                    .center(),
+                color: getRandomColor(),
+                child: Text(
+                  genre.name!,
+                  textAlign: TextAlign.center,
+                  style: boldTextStyle(color: Colors.white),
+                ).center(),
               ).cornerRadiusWithClipRRect(10),
             );
           },

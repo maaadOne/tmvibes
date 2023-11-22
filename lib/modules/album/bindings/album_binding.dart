@@ -8,8 +8,10 @@ class AlbumBinding extends Bindings {
     Get.lazyPut<AlbumsController>(
       () => AlbumsController(),
     );
-    Get.lazyPut<AlbumController>(
-      () => AlbumController(),
-    );
+    Get.put(AlbumController(), permanent: true);
+    // Get.lazyPut<AlbumController>(
+    //   () => AlbumController(),
+
+    // );
   }
 }

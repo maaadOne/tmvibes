@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:rxdart/rxdart.dart' as rx;
-import 'package:yandex_mobileads/mobile_ads.dart';
 import '../../../models/position_data.dart';
 import 'dart:async';
 import '../../album/views/album_view.dart';
@@ -14,13 +12,13 @@ import '../../home/views/home_view.dart';
 class RootController extends GetxController {
   final currentIndex = 0.obs;
   AudioPlayer audioPlayer = AudioPlayer();
-  RewardedAd? ad;
+  // RewardedAd? ad;
 
-  @override
-  void onInit() async {
-    super.onInit();
-    // await showRewardOn();
-  }
+  // @override
+  // void onInit() async {
+  //   super.onInit();
+  //   // await showRewardOn();
+  // }
 
   Stream<PositionData> get positionDataStream =>
       rx.Rx.combineLatest3<Duration, Duration, Duration?, PositionData>(
@@ -60,23 +58,23 @@ class RootController extends GetxController {
     super.dispose();
   }
 
-  Future<void> showRewardOn() async {
-    ad = await RewardedAd.create(
-      adUnitId: 'R-M-2542694-1',
-      onAdFailedToLoad: (error) {
-        // isFailedToGetAds.value = true;
-        /* Do something */
-      },
-    );
-    await ad!.load(adRequest: const AdRequest());
-    await ad!.show();
-    final reward = await ad!.waitForDismiss();
+  // Future<void> showRewardOn() async {
+  //   ad = await RewardedAd.create(
+  //     adUnitId: 'R-M-2542694-1',
+  //     onAdFailedToLoad: (error) {
+  //       // isFailedToGetAds.value = true;
+  //       /* Do something */
+  //     },
+  //   );
+  //   await ad!.load(adRequest: const AdRequest());
+  //   await ad!.show();
+  //   final reward = await ad!.waitForDismiss();
 
-    if (reward == null) {
-      // Start downloading the first item in the list
-      // audioPlayer.stop();
-      SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-    }
-    print("GORDU");
-  }
+  //   if (reward == null) {
+  //     // Start downloading the first item in the list
+  //     // audioPlayer.stop();
+  //     SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+  //   }
+  //   print("GORDU");
+  // }
 }

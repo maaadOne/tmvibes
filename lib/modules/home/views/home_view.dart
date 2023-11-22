@@ -13,7 +13,6 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    print("${Get.size.width}/${Get.size.height}");
     // 360.0/640.0 small, 412.0x732.0 medium, 480.0x853.0
     // 360.0x800.0
     // 411.0x960
